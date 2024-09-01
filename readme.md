@@ -18,36 +18,36 @@ The technology choices are based on what the author is most familiar with, and t
 
 ## Document Structure
 
-1. [LLM Server Implementation](llm-server.md)
+1. [LLM Server Implementation](1-llm-server.md)
    - Details on FastAPI and ctransformers usage
    - GGUF model file handling
 
-2. [Hosting vs. 3rd Party Comparison](hosting-vs-3rdparty.md)
+2. [Hosting vs. 3rd Party Comparison](2-hosting-vs-3rdparty.md)
    - Cost analysis
    - Censorship considerations
    - Customization options
 
-3. [Infrastructure and DevOps](infrastructure.md)
+3. [Infrastructure and DevOps](3-infrastructure.md)
    - Azure infrastructure setup
    - Terraform for Infrastructure as Code
    - CI/CD with Azure Pipelines
    - GPU and RAM estimations
 
-4. [Prompt Engineering](prompt-engineering.md)
+4. [Prompt Engineering](4-prompt-engineering.md)
    - User-facing AI chatbot design
    - System prompts and file resources integration
    - Character style implementation
 
-5. [Backoffice AI Work](backoffice-ai.md)
+5. [Backoffice AI Work](5-backoffice-ai.md)
    - AI-assisted character creation
    - Text2Image AI for profile pictures
    - Conversation flow management
 
-6. [Security Considerations](security.md)
+6. [Security Considerations](6-security.md)
    - AI-specialized aspects of security: User-facing AI security measures
    - General security considerations
 
-7. [Web Architecture](web-architecture.md)
+7. [Web Architecture](7-web-architecture.md)
    - Backend and frontend design
    - Database and caching strategies
    - Future abstraction proxy implementation
