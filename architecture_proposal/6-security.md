@@ -2,6 +2,8 @@
 
 This document outlines the security measures and considerations for our LLM-based chat service. Given the sensitive nature of user conversations and the potential risks associated with AI systems, implementing robust security measures is crucial.
 
+This AI application does not act as an agent. (It can only generate response, but cannot act while integrating with other systems.) This means that the user cannot misuse the AI in a way that it would become a security threat. This means that this application may have security measures that are easier to implement, compared to an AI application with agent capabilities.
+
 ## Key Security Areas
 
 1. LLM Service Protection
