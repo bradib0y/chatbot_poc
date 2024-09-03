@@ -22,7 +22,7 @@ The technology choices are based on what the author is most familiar with, and t
    - Details on FastAPI and ctransformers usage
    - GGUF model file handling
 
-2. [Hosting vs. 3rd Party Comparison](2-hosting.md)
+2. [Hosting](2-hosting.md)
    - Cost analysis
    - Censorship considerations
    - Customization options
