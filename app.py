@@ -11,14 +11,17 @@ if __name__ == "__main__":
 print(__name__)
 app = FastAPI()
 
-# Load configuration
+# Define config filename
 config_file_name = "config.yaml"
+
+# Load config
 try:
     with open(config_file_name, "r") as config_file:
         config = yaml.safe_load(config_file)
 
     MODEL_PATH = config["model_path"]
-    SYSTEM_PROMPT = config["system_prompt"]
+    SYSTEM_PROMPT_RHYMES = config["system_prompt_rhymes"]
+    SYSTEM_PROMPT_SEXY = config["system_prompt_sexy"]
 except Exception as e:
     print(f"There is an issue with config file '{config_file_name}': {str(e)}")
     exit()
@@ -48,12 +51,41 @@ class ChatResponse(BaseModel):
 
 
 # FastAPI route for chat
-@app.post("/chat", response_model=ChatResponse)
+@app.post("/chat_rhymes", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     try:
+        # Load system prompt
+        system_prompt = SYSTEM_PROMPT_RHYMES
         # Combine system prompt and user prompt
         full_prompt = (
-            f"System: {SYSTEM_PROMPT}\n\nHuman: {request.prompt}\n\nAssistant:"
+            f"System: {system_prompt}\n\nHuman: {request.prompt}\n\nAssistant:"
+        )
+
+        # Generate response
+        response = model(
+            full_prompt,
+            max_tokens=request.max_tokens,
+            stop=["Human:"],
+            echo=False,
+        )
+
+        # Extract generated text
+        generated_text = response["choices"][0]["text"].strip()
+
+        return ChatResponse(text=generated_text)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# FastAPI route for chat
+@app.post("/chat_sexy", response_model=ChatResponse)
+async def chat(request: ChatRequest):
+    try:
+        # Load system prompt
+        system_prompt = SYSTEM_PROMPT_SEXY
+        # Combine system prompt and user prompt
+        full_prompt = (
+            f"System: {system_prompt}\n\nHuman: {request.prompt}\n\nAssistant:"
         )
 
         # Generate response
